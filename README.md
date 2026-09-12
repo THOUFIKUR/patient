@@ -79,15 +79,18 @@ The server will start at `http://localhost:8000`.
 
 ## 🔌 API Endpoints Summary
 
-| Endpoint | Method | Description |
-|---|---|---|
-| `/api/encounters/bootstrap` | POST | Initialize encounter from QR token & language |
-| `/api/call/start` | POST | Begin conversational voice session |
-| `/api/call/turn` | POST | Process patient audio turn / response |
-| `/api/documents/upload` | POST | Upload and process prescription/document |
-| `/api/queue` | GET | List patient queue sorted by priority |
-| `/api/doctor/encounter/{id}` | GET | Fetch clinical card, facts & safety flags |
-| `/api/doctor/finalize` | POST | Doctor final sign-off & prescription issue |
+| Endpoint | Method | Description | Flutter Consumer |
+|---|---|---|---|
+| `/api/encounters/bootstrap` | POST | Initialize encounter from QR token & language | `EncounterRepository.bootstrap()` |
+| `/api/encounters/{id}` | GET | Fetch encounter summary & fact count | `EncounterRepository.getEncounter()` |
+| `/api/call/session/start` | POST | Begin conversational voice session | `IntakeRepository.startSession()` |
+| `/api/call/audio-turn` | POST | Process patient audio turn / response | `IntakeRepository.processAudioTurn()` |
+| `/api/call/session/end` | POST | End voice session and generate summary | `IntakeRepository.endSession()` |
+| `/api/documents/upload` | POST | Upload and process prescription/document OCR | `DocumentRepository.uploadDocument()` |
+| `/api/queue/status/{token}` | GET | Get queue position and estimated wait time | `QueueRepository.getStatus()` |
+| `/api/doctor/auth` | POST | Authenticate doctor via 4-digit PIN | `DoctorRepository.authenticate()` |
+| `/api/doctor/queue` | GET | List patient queue with 30-word triage cards | `DoctorRepository.getQueue()` |
+| `/api/doctor/patient/{id}` | GET | Fetch complete clinical facts & safety alerts | `DoctorRepository.getPatientDetail()` |
 
 ---
 
