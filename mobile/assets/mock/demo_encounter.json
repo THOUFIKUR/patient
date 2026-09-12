@@ -1,0 +1,83 @@
+{
+  "encounter_id": "enc-demo0001",
+  "patient_id": "pat-demo0001",
+  "token_number": "A-042",
+  "status": "COMPLETED",
+  "severity_badge": "YELLOW",
+  "department": "General Medicine",
+  "language": "hi",
+  "channel": "android_byod",
+  "fact_count": 8,
+  "has_red_flags": false,
+  "clinical_facts": [
+    {
+      "id": "fact-001",
+      "encounter_id": "enc-demo0001",
+      "category": "chief_complaint",
+      "field": "main_complaint",
+      "value": "headache",
+      "patient_words": "Sar dard ho raha hai",
+      "normalized_concept": "Headache",
+      "concept_code": "SNOMED:25064002",
+      "provenance_tier": "EMBEDDING",
+      "confidence": 0.87,
+      "is_negated": false,
+      "status": "confirmed",
+      "temporal_state": "current"
+    },
+    {
+      "id": "fact-002",
+      "encounter_id": "enc-demo0001",
+      "category": "duration",
+      "field": "onset_duration",
+      "value": "3 days",
+      "provenance_tier": "EMBEDDING",
+      "confidence": 0.92,
+      "is_negated": false,
+      "status": "confirmed"
+    },
+    {
+      "id": "fact-003",
+      "encounter_id": "enc-demo0001",
+      "category": "medications_current",
+      "field": "current_medication",
+      "value": "Warfarin",
+      "dose": "5mg",
+      "frequency": "OD",
+      "provenance_tier": "OCR",
+      "confidence": 0.91,
+      "is_negated": false,
+      "status": "confirmed"
+    },
+    {
+      "id": "fact-004",
+      "encounter_id": "enc-demo0001",
+      "category": "medications_stopped",
+      "field": "stopped_medication",
+      "value": "Aspirin",
+      "provenance_tier": "EMBEDDING",
+      "confidence": 0.79,
+      "is_negated": false,
+      "status": "pending"
+    }
+  ],
+  "drug_interaction_alerts": [
+    {
+      "drug_a": "Warfarin",
+      "drug_b": "Aspirin",
+      "severity": "HIGH",
+      "clinical_warning": "Concurrent use significantly increases risk of major bleeding. Monitor INR closely.",
+      "evidence_source": "MediKiosk-DDI-DB"
+    }
+  ],
+  "lab_result_alerts": [],
+  "clinical_gap_alerts": [
+    {
+      "gap_type": "MISSING_ALLERGY_HISTORY",
+      "condition_trigger": "Warfarin prescription",
+      "missing_question": "Has the patient had any previous bleeding events?",
+      "clinical_rationale": "Warfarin requires baseline bleeding history to assess anticoagulation risk.",
+      "priority": "HIGH"
+    }
+  ]
+}
