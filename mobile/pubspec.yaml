@@ -31,7 +31,7 @@ dependencies:
   intl: ^0.20.3
 
   # === Audio (Voice Intake) ===
-  record: ^5.1.2
+  record: ^5.2.1
   audioplayers: ^6.1.0
   just_audio: ^0.9.42
   permission_handler: ^11.3.1
@@ -57,6 +57,9 @@ dependencies:
 
   # === Icons ===
   cupertino_icons: ^1.0.8
+
+dependency_overrides:
+  record_platform_interface: 1.5.0
 
 dev_dependencies:
   flutter_test:
